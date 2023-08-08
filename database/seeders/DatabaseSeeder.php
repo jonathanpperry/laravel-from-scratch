@@ -20,12 +20,21 @@ class DatabaseSeeder extends Seeder
         Post::truncate();
         Category::truncate();
 
-        $user = User::factory()->create([
+        $user1 = User::factory()->create([
             'name' => 'John Doe',
         ]);
 
-        Post::factory(5)->create([
-            'user_id' => $user->id
+        $user2 = User::factory()->create([
+            'name' => 'Mike Tyson',
+        ]);
+
+
+        Post::factory(15)->create([
+            'user_id' => $user1->id
+        ]);
+
+        Post::factory(15)->create([
+            'user_id' => $user2->id
         ]);
     }
 } 
